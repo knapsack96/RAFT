@@ -181,17 +181,17 @@ if __name__ == '__main__':
     model.cuda()
     model.eval()
 
-    # create_sintel_submission(model.module, warm_start=True)
+    create_sintel_submission(model.module, warm_start=True)
     # create_kitti_submission(model.module)
 
-    with torch.no_grad():
-        if args.dataset == 'chairs':
-            validate_chairs(model.module)
+    #with torch.no_grad():
+    #    if args.dataset == 'chairs':
+    #        validate_chairs(model.module)
 
-        elif args.dataset == 'sintel':
-            validate_sintel(model.module)
+    #    elif args.dataset == 'sintel':
+    #        validate_sintel(model.module)
 
-        elif args.dataset == 'kitti':
-            validate_kitti(model.module)
+    #    elif args.dataset == 'kitti':
+    #        validate_kitti(model.module)
 
 
