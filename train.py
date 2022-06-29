@@ -140,10 +140,15 @@ def train(args):
 
     if args.restore_ckpt is not None:
         model.load_state_dict(torch.load(args.restore_ckpt), strict=False)
-
+       
     model.cuda()
+    
     model.train()
-
+    
+    for name, param in model.named_parameters():
+      if param.requires_grad and (name != "module.update_block.mask.2.weight" or name != "module.update_block.mask.2.bias"):
+        param.requires_grad = False
+    
     if args.stage != 'chairs':
         model.module.freeze_bn()
 
