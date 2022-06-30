@@ -146,7 +146,7 @@ def train(args):
     model.train()
     
     for name, param in model.named_parameters():
-      if param.requires_grad and name != "module.update_block.mask.2.weight" and name != "module.update_block.mask.2.bias":
+      if param.requires_grad and name != "module.update_block.mask.2.weight":
         param.requires_grad = False
     
     if args.stage != 'chairs':
